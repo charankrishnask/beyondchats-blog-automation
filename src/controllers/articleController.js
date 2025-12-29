@@ -5,8 +5,13 @@ exports.createArticle = async (req, res) => {
   res.status(201).json(article);
 };
 
+// exports.getArticles = async (req, res) => {
+//   const articles = await Article.find().sort({ createdAt: 1 });
+//   res.json(articles);
+// };
 exports.getArticles = async (req, res) => {
-  const articles = await Article.find().sort({ createdAt: 1 });
+  const articles = await Article.find();
+  console.log("Articles from DB:", articles.length);
   res.json(articles);
 };
 
