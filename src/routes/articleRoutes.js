@@ -9,10 +9,15 @@ router.put("/:id", controller.updateArticle);
 router.delete("/:id", controller.deleteArticle);
 router.get("/", async (req, res) => {
   try {
-    const articles = await Article.find().sort({ createdAt: -1 });
+    console.log("📥 GET /api/articles called");
+
+    const articles = await Article.find();
+    console.log("✅ Articles fetched:", articles.length);
+
     res.json(articles);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error("❌ Error fetching articles:", err);
+    res.status(500).json({ error: err.message });
   }
 });
 module.exports = router;
