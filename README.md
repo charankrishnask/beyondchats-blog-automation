@@ -122,7 +122,7 @@ DELETE	        /api/articles/:id	    Delete article
 
 🛠 Local Setup Instructions
 1️⃣ Clone Repository
-git clone 
+git clone https://github.com/charankrishnask/beyondchats-blog-automation
 cd beyondchats-assignment
 2️⃣ Install Dependencies
 npm install
@@ -142,7 +142,7 @@ npm run dev
 
 API will be available at:
 
-http://localhost:5000/api/articles
+https://beyondchats-blog-automation-4.onrender.com/api/articles
 
 ✅ Phase 1 Completion Status
 
@@ -170,3 +170,8 @@ Scrape reference content
 Use an LLM to enhance article quality
 
 Publish updated articles via existing APIs
+
+## 🔗 Live Links
+
+- Frontend (Vercel): https://beyondchats-blog-automation.vercel.app/
+- Backend API (Render): https://beyondchats-blog-automation-4.onrender.com/api/articles
