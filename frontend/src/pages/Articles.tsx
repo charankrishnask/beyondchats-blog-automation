@@ -10,11 +10,12 @@ export default function Articles() {
     api
       .get("/articles")
       .then((res) => {
-        setArticles(res.data);
+        console.log("Fetched articles:", res.data); // ✅ DEBUG (safe to keep)
+        setArticles(res.data);                      // ✅ set full array
         setLoading(false);
       })
       .catch((err) => {
-        console.error(err);
+        console.error("Error fetching articles:", err);
         setLoading(false);
       });
   }, []);
@@ -40,12 +41,18 @@ export default function Articles() {
         </p>
       </div>
 
-      {/* Articles Grid */}
-      <div className="grid lg:grid-cols-2 gap-8">
-        {articles.map((article) => (
-          <ArticleCard key={article._id} article={article} />
-        ))}
-      </div>
+      {/* Empty State (NEW – minimal but important) */}
+      {articles.length === 0 ? (
+        <p className="text-center text-gray-400">
+          No articles available.
+        </p>
+      ) : (
+        <div className="grid lg:grid-cols-2 gap-8">
+          {articles.map((article) => (
+            <ArticleCard key={article._id} article={article} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
